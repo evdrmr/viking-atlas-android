@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mists of Niflheim (Offline)</title>
+    <style>
+        body {
+            background-color: #06080c;
+            color: #ededed;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .container {
+            max-width: 400px;
+            padding: 40px 24px;
+            border-radius: 24px;
+            background: rgba(18, 20, 26, 0.7);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 32px rgba(212, 175, 55, 0.1);
+        }
+        .icon {
+            width: 72px;
+            height: 72px;
+            margin-bottom: 24px;
+            color: #d4af37;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+        }
+        h1 {
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 16px 0;
+            letter-spacing: 0.08em;
+            color: #d4af37;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #a3a3a3;
+            margin: 0 0 32px 0;
+        }
+        .btn {
+            background-color: #d4af37;
+            color: #06080c;
+            border: 1px solid #d4af37;
+            padding: 14px 36px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 9999px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);
+            transition: all 0.25s ease-in-out;
+            outline: none;
+        }
+        .btn:active {
+            transform: scale(0.97);
+            background-color: #b89628;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Runic Compass / Raven Icon -->
+        <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <h1>Mists of Niflheim</h1>
+        <p>The cosmic sea is enveloped in freezing mist and your connection has drifted. Check your connection to return to the sagas.</p>
+        <button class="btn" onclick="retry()">Consult the Runes (Retry)</button>
+    </div>
+
+    <script>
+        function retry() {
+            window.location.href = "https://www.hobbyshot.net/viking-atlas";
+        }
+    </script>
+</body>
+</html>

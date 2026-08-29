@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Branding matching Viking Atlas theme (dark background with Norse gold and Runic blue) -->
+    <color name="primary_color">#d4af37</color> <!-- Norse Gold -->
+    <color name="primary_dark_color">#996515</color> <!-- Dark Gold -->
+    <color name="bg_color">#06080c</color> <!-- Norse Midnight Background -->
+    <color name="accent_color">#38bdf8</color> <!-- Runic Blue -->
+    <color name="ic_launcher_background">#06080c</color>
+</resources>
