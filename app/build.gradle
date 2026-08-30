@@ -10,11 +10,11 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace 'net.hobbyshot.vikingatlas'
+    namespace 'net.hobbyshot.sagasofyggdrasil'
     compileSdk 35
 
     defaultConfig {
-        applicationId "net.hobbyshot.vikingatlas"
+        applicationId "net.hobbyshot.sagasofyggdrasil"
         minSdk 24
         targetSdk 35
         versionCode 1
@@ -45,7 +45,7 @@ android {
 
     applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "viking-atlas-${variant.name}.apk"
+            outputFileName = "sagas-of-yggdrasil-${variant.name}.apk"
         }
     }
 
@@ -74,14 +74,14 @@ tasks.configureEach { task ->
         task.doLast {
             def oldFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/app-release.aab")
             if (oldFile.exists()) {
-                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/viking-atlas-release.aab"))
+                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/sagas-of-yggdrasil-release.aab"))
             }
         }
     } else if (task.name == "bundleDebug") {
         task.doLast {
             def oldFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/app-debug.aab")
             if (oldFile.exists()) {
-                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/viking-atlas-debug.aab"))
+                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/sagas-of-yggdrasil-debug.aab"))
             }
         }
     }

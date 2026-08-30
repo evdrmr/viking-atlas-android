@@ -1,4 +1,4 @@
-package net.hobbyshot.vikingatlas
+package net.hobbyshot.sagasofyggdrasil
 
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         settings.builtInZoomControls = true
         settings.displayZoomControls = false
         settings.setSupportZoom(true)
-        settings.setGeolocationEnabled(true)
+        settings.setGeolocationEnabled(false)
         settings.cacheMode = WebSettings.LOAD_DEFAULT
 
         webView.webViewClient = object : WebViewClient() {
@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                 origin: String?,
                 callback: GeolocationPermissions.Callback?
             ) {
-                callback?.invoke(origin, true, false)
+                callback?.invoke(origin, false, false)
             }
 
             override fun onShowFileChooser(

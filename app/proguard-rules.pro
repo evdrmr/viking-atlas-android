@@ -3,4 +3,4 @@
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;
 }
--keep class net.hobbyshot.vikingatlas.WebAppInterface { *; }
+-keep class net.hobbyshot.sagasofyggdrasil.WebAppInterface { *; }

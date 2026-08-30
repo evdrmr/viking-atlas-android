@@ -16,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Viking Atlas"
+rootProject.name = "Sagas of Yggdrasil"
 include ':app'
