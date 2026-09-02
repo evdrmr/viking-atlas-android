@@ -80,14 +80,18 @@ tasks.configureEach { task ->
         task.doLast {
             def oldFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/app-release.aab")
             if (oldFile.exists()) {
-                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/sagas-of-yggdrasil-release.aab"))
+                def newFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/release/sagas-of-yggdrasil-release.aab")
+                if (newFile.exists()) newFile.delete()
+                oldFile.renameTo(newFile)
             }
         }
     } else if (task.name == "bundleDebug") {
         task.doLast {
             def oldFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/app-debug.aab")
             if (oldFile.exists()) {
-                oldFile.renameTo(file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/sagas-of-yggdrasil-debug.aab"))
+                def newFile = file("${layout.buildDirectory.get().asFile}/outputs/bundle/debug/sagas-of-yggdrasil-debug.aab")
+                if (newFile.exists()) newFile.delete()
+                oldFile.renameTo(newFile)
             }
         }
     }
