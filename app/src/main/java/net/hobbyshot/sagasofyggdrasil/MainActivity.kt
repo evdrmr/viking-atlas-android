@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
     private val FILE_CHOOSER_RESULT_CODE = 1
 
-    private val targetUrl = "https://www.hobbyshot.net/viking-atlas"
+    private val targetUrl = "https://www.gamebooks.tech/sagas-of-yggdrasil"
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,14 +61,15 @@ class MainActivity : AppCompatActivity() {
                 if (url == null) return false
                 val uri = Uri.parse(url)
                 val host = uri.host
-                if (host != null && (host == "www.hobbyshot.net" || host == "hobbyshot.net" || host == "10.0.2.2" || host.endsWith("supabase.co"))) {
+                if (host != null && (host == "www.gamebooks.tech" || host == "gamebooks.tech" || host == "www.hobbyshot.net" || host == "hobbyshot.net" || host == "10.0.2.2" || host.endsWith("supabase.co"))) {
                     return false
                 }
                 try {
                     val intent = Intent(Intent.ACTION_VIEW, uri)
                     view?.context?.startActivity(intent)
                 } catch (e: Exception) {
-                    // Ignore
+                    // Fallback to standard webview loading if intent fails
+                    return false
                 }
                 return true
             }
@@ -98,7 +99,7 @@ class MainActivity : AppCompatActivity() {
                 failingUrl: String?
             ) {
                 super.onReceivedError(view, errorCode, description, failingUrl)
-                if (failingUrl == targetUrl || failingUrl?.startsWith("https://www.hobbyshot.net") == true || failingUrl?.startsWith("https://hobbyshot.net") == true || failingUrl?.startsWith("http://10.0.2.2") == true) {
+                if (failingUrl == targetUrl || failingUrl?.startsWith("https://www.gamebooks.tech") == true || failingUrl?.startsWith("https://gamebooks.tech") == true || failingUrl?.startsWith("https://www.hobbyshot.net") == true || failingUrl?.startsWith("http://10.0.2.2") == true) {
                     view?.loadUrl("file:///android_asset/offline.html")
                 }
             }
