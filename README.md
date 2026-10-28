@@ -11,6 +11,7 @@ Android WebView companion for [Sagas of Yggdrasil](https://www.gamebooks.tech/sa
 | Compile / target SDK | 36 |
 | Minimum SDK | 24 |
 | Source version at 2026-09-05 baseline | versionCode `3`, versionName `1.0.2` |
+| Current source version | versionCode `4`, versionName `1.0.3` |
 | Gradle wrapper | 9.8.2 |
 | Android Gradle Plugin | 9.2.1 |
 | Kotlin plugin | 2.4.21 |
@@ -57,3 +58,5 @@ Smoke-test launch, navigation/back, progress after reload, external links, offli
 The web project's [operations runbook](../viking-atlas/docs/runbook.md) describes local validation, GitHub push, server pull/build, smoke testing, restart, and production verification. Documentation-only Android corrections do not require a version bump or new AAB.
 
 Toolchain versions, back-navigation behavior, and verification guidance: [toolchain and back navigation](docs/toolchain-and-back-navigation.md).
+
+Current upload candidate: [1.0.3 (4)](docs/release-2026-10-27.md).
