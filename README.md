@@ -11,10 +11,10 @@ Android WebView companion for [Sagas of Yggdrasil](https://www.gamebooks.tech/sa
 | Compile / target SDK | 36 |
 | Minimum SDK | 24 |
 | Source version at 2026-09-05 baseline | versionCode `3`, versionName `1.0.2` |
-| Gradle wrapper | 9.4.1 |
+| Gradle wrapper | 9.8.2 |
 | Android Gradle Plugin | 9.2.1 |
-| Kotlin plugin | 2.2.10 |
-| Gradle daemon toolchain | Java 21, configured in `gradle/gradle-daemon-jvm.properties` |
+| Kotlin plugin | 2.4.21 |
+| Gradle daemon toolchain | Java 25, configured in `gradle/gradle-daemon-jvm.properties` |
 
 Treat `app/build.gradle` and the wrapper/toolchain files as authoritative when releasing.
 
@@ -55,3 +55,5 @@ Before a new Play upload, increment `versionCode` beyond the latest uploaded rel
 Smoke-test launch, navigation/back, progress after reload, external links, offline retry, swipe-to-refresh, and any changed bridge behavior on a device or emulator. Leave the verified AAB ready for the user to upload manually to Google Play Console.
 
 The web project's [operations runbook](../viking-atlas/docs/runbook.md) describes local validation, GitHub push, server pull/build, smoke testing, restart, and production verification. Documentation-only Android corrections do not require a version bump or new AAB.
+
+Toolchain versions, back-navigation behavior, and verification guidance: [toolchain and back navigation](docs/toolchain-and-back-navigation.md).

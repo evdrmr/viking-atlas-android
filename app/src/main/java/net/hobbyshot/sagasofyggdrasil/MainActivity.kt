@@ -17,6 +17,7 @@ import android.webkit.WebView
 import android.webkit.WebResourceRequest
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private lateinit var swipeRefresh: SwipeRefreshLayout
     private lateinit var progressBar: ProgressBar
+    private lateinit var backCallback: OnBackPressedCallback
 
     private var filePathCallback: ValueCallback<Array<Uri>>? = null
     private val FILE_CHOOSER_RESULT_CODE = 1
@@ -39,6 +41,13 @@ class MainActivity : AppCompatActivity() {
         webView = findViewById(R.id.webView)
         swipeRefresh = findViewById(R.id.swipeRefresh)
         progressBar = findViewById(R.id.progressBar)
+
+        backCallback = object : OnBackPressedCallback(false) {
+            override fun handleOnBackPressed() {
+                webView.goBack()
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, backCallback)
 
         val cookieManager = CookieManager.getInstance()
         cookieManager.setAcceptCookie(true)
@@ -85,10 +94,16 @@ class MainActivity : AppCompatActivity() {
                 progressBar.progress = 0
             }
 
+            override fun doUpdateVisitedHistory(view: WebView?, url: String?, isReload: Boolean) {
+                super.doUpdateVisitedHistory(view, url, isReload)
+                backCallback.isEnabled = webView.canGoBack()
+            }
+
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBar.visibility = View.GONE
                 swipeRefresh.isRefreshing = false
+                backCallback.isEnabled = webView.canGoBack()
             }
 
             @Deprecated("Deprecated in Java")
@@ -173,6 +188,7 @@ class MainActivity : AppCompatActivity() {
             webView.loadUrl(targetUrl)
         } else {
             webView.restoreState(savedInstanceState)
+            backCallback.isEnabled = webView.canGoBack()
         }
     }
 
@@ -195,15 +211,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack()
-        } else {
-            super.onBackPressed()
-        }
-    }
-
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         webView.saveState(outState)
@@ -212,6 +219,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         webView.restoreState(savedInstanceState)
+        backCallback.isEnabled = webView.canGoBack()
     }
 
     fun setSwipeRefreshEnabled(enabled: Boolean) {

@@ -55,9 +55,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
     lint {
         checkReleaseBuilds false
         abortOnError false
@@ -94,5 +91,12 @@ tasks.configureEach { task ->
                 oldFile.renameTo(newFile)
             }
         }
+    }
+}
+
+// Keep Android bytecode compatibility independent of the build JDK.
+kotlin {
+    compilerOptions {
+        jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8
     }
 }
